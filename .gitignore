@@ -1,7 +1,4 @@
-######################
-# 解决java产生文件
-######################
-*.class
+
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
