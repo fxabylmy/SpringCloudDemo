@@ -7,7 +7,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>gateway</module>
-        <module>commom</module>
+        <module>common</module>
+        <module>user-service</module>
     </modules>
     <name>SpringCloudDemo</name>
     <description>SpringCloudDemo</description>
