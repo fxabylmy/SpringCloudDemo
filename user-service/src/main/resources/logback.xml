@@ -46,7 +46,7 @@
     </Appenders>
     <Loggers>
         <!--若是additivity设为false，则 子Logger 只会在自己的appender里输出，而不会在 父Logger 的appender里输出。-->
-        <Logger name="com.tuorong" level="${level}" additivity="false">
+        <Logger name="com.example" level="${level}" additivity="false">
             <AppenderRef ref="File"/>
             <AppenderRef ref="Console"/>
         </Logger>

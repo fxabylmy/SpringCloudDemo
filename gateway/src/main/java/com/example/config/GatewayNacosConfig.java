@@ -1,4 +1,4 @@
-package com.tuorong.config;
+package com.example.config;
 
 import lombok.Data;
 

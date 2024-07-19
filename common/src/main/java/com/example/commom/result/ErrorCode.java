@@ -12,7 +12,11 @@ public enum ErrorCode {
     SUCCESS(200,"成功"),
     SYSTEM_ERROR(50000, "系统内部异常"),
     PARAMS_ERROR(50010,"参数错误"),
-    DATABASE_ERROR(50020, "数据库操作失败");
+    DATABASE_ERROR(50020, "数据库操作失败"),
+    LOGOUT_ERROR(50030,"登出失败"),
+    TOKEN_MISSION(40010,"Token丢失"),
+    TOKEN_INVALID(40020,"Token无效");
+    ;
 
     /**
      * 错误码

@@ -31,6 +31,19 @@
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
+        <!-- 本项目通用工具模块 -->
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--  jwt工具模块   -->
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>jwt-util</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- 网关 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

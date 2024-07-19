@@ -33,6 +33,16 @@ public class ThrowUtils {
     /**
      * 条件成立则抛异常
      *
+     * @param condition 条件
+     * @param errorCode 错误代码
+     */
+    public static void throwIf(Boolean condition, ErrorCode errorCode) {
+        throwIf(condition, new BusinessException(errorCode));
+    }
+
+    /**
+     * 条件成立则抛异常
+     *
      * @param condition
      * @param errorCode
      * @param message

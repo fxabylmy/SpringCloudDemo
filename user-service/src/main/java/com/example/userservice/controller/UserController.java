@@ -1,6 +1,7 @@
 package com.example.userservice.controller;
 
 import com.example.commom.result.BaseResult;
+import com.example.commom.result.ErrorCode;
 import com.example.commom.result.ResultUtil;
 import com.example.userservice.model.dto.UserLoginRequest;
 import com.example.userservice.service.UserService;
@@ -8,13 +9,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+
+import static com.example.commom.result.ErrorCode.SYSTEM_ERROR;
 
 @RefreshScope // 自动配置更新
 @RestController
@@ -35,4 +36,21 @@ public class UserController {
         return ResultUtil.success(tokenMap);
     }
 
+
+    @Operation(summary = "令牌刷新")
+    @PostMapping("/token/refresh")
+    public BaseResult<Map<String, Object>> RefreshToken(@RequestHeader(value = "${auth.jwt.header}") String refreshToken){
+        Map<String, Object> tokenMap = userService.refreshToken(refreshToken);
+        return ResultUtil.success(tokenMap);
+    }
+
+    @Operation(summary = "用户登出")
+    @PostMapping("/logout")
+    public BaseResult<Map<String, Object>> Logout(String userId){
+        Boolean logoutResult = userService.logout(userId);
+        if (logoutResult){
+            return ResultUtil.success();
+        }
+        return ResultUtil.error(SYSTEM_ERROR);
+    }
 }

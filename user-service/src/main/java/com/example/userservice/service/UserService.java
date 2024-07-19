@@ -9,4 +9,8 @@ import java.util.Map;
 public interface UserService extends IService<User> {
 
     Map<String, Object> userLogin(String account, String password);
+
+    Map<String, Object> refreshToken(String refreshToken);
+
+    Boolean logout(String userId);
 }
