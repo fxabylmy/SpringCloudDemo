@@ -1,7 +1,7 @@
 package com.example.userservice.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.userservice.model.pojo.User;
+import com.example.model.user.pojo.User;
 
 import java.util.Map;
 

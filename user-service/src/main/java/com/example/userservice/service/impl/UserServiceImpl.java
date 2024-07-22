@@ -5,10 +5,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.commom.exception.BusinessException;
 import com.example.commom.result.ErrorCode;
 
-import com.example.commom.result.ResultUtil;
 import com.example.jwtutil.jwtUtil.JwtTokenUtil;
+import com.example.model.user.pojo.User;
 import com.example.userservice.mapper.UserMapper;
-import com.example.userservice.model.pojo.User;
 import com.example.userservice.service.UserService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +18,6 @@ import java.util.Map;
 
 import static com.example.commom.exception.ThrowUtils.throwIf;
 import static com.example.commom.result.ErrorCode.LOGOUT_ERROR;
-import static com.example.commom.result.ErrorCode.TOKEN_INVALID;
 
 /**
  * 用户服务层
@@ -29,7 +27,7 @@ import static com.example.commom.result.ErrorCode.TOKEN_INVALID;
  */
 @Service
 @Slf4j
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
 
     /**
      * jwt令牌工具类

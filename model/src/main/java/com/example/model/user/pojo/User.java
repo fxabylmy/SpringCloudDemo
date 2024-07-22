@@ -1,4 +1,4 @@
-package com.example.userservice.model.pojo;
+package com.example.model.user.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;

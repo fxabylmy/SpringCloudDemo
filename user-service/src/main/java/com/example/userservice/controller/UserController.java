@@ -1,15 +1,13 @@
 package com.example.userservice.controller;
 
 import com.example.commom.result.BaseResult;
-import com.example.commom.result.ErrorCode;
 import com.example.commom.result.ResultUtil;
-import com.example.userservice.model.dto.UserLoginRequest;
+import com.example.model.user.dto.UserLoginRequest;
 import com.example.userservice.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 

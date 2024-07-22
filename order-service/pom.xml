@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <!-- 继承父工程 -->
     <parent>
         <artifactId>SpringCloudDemo</artifactId>
@@ -10,10 +11,10 @@
     </parent>
 
     <!-- 坐标 -->
-    <artifactId>user-service</artifactId>
+    <artifactId>order-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>user-service</name>
-    <description>用户服务(测试)</description>
+    <name>order-service</name>
+    <description>测试用服务</description>
 
     <!-- 配置 -->
     <properties>
@@ -22,7 +23,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
-    <!-- 依赖 -->
+
     <dependencies>
         <!-- 本项目通用工具模块 -->
         <dependency>
@@ -45,12 +46,6 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- jwt工具模块 -->
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>jwt-util</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
         <!-- web -->
         <dependency>
@@ -63,29 +58,6 @@
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <!-- jwt 工具类 -->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-core</artifactId>
-            <version>2.3.0</version>
         </dependency>
 
 
@@ -102,6 +74,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
 
     <build>
         <plugins>
