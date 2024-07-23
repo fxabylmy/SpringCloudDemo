@@ -12,10 +12,13 @@ import com.example.userservice.service.UserService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+import static com.example.commom.constant.RabbitMQConstant.DEMO_MESSAGE_EXCHANGE;
+import static com.example.commom.constant.RabbitMQConstant.DEMO_MESSAGE_SEND_KEY;
 import static com.example.commom.exception.ThrowUtils.throwIf;
 import static com.example.commom.result.ErrorCode.LOGOUT_ERROR;
 
@@ -34,6 +37,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
      */
     @Resource
     private JwtTokenUtil jwtTokenUtil;
+
+    @Resource
+    private RabbitTemplate rabbitTemplate;
 
     /**
      * 用户登录
@@ -95,6 +101,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     public Boolean logout(String userId) {
         Boolean logoutResult = jwtTokenUtil.removeToken(userId);
         throwIf(!logoutResult,LOGOUT_ERROR);
+        return true;
+    }
+
+    /**
+     * 发送消息(测试RabbitMQ)
+     *
+     * @param message 信息
+     * @return {@link Boolean}
+     */
+    @Override
+    public Boolean sendMessage(String message) {
+        rabbitTemplate.convertAndSend(DEMO_MESSAGE_EXCHANGE,DEMO_MESSAGE_SEND_KEY,message);
         return true;
     }
 }

@@ -13,4 +13,6 @@ public interface UserService extends IService<User> {
     Map<String, Object> refreshToken(String refreshToken);
 
     Boolean logout(String userId);
+
+    Boolean sendMessage(String message);
 }

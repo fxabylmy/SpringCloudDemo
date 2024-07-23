@@ -51,4 +51,20 @@ public class UserController {
         }
         return ResultUtil.error(SYSTEM_ERROR);
     }
+
+
+    /**
+     * 发送消息(RabbitMQ测试)
+     *
+     * @param message 信息
+     * @return {@link BaseResult}<{@link String}>
+     */
+    @PostMapping("/message")
+    public BaseResult<String> sendMessage(String message){
+        Boolean isSuccess = userService.sendMessage(message);
+        if (isSuccess){
+            return ResultUtil.success();
+        }
+        return ResultUtil.error(SYSTEM_ERROR);
+    }
 }
