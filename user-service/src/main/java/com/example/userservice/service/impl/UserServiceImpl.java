@@ -1,5 +1,6 @@
 package com.example.userservice.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.commom.exception.BusinessException;
@@ -7,20 +8,24 @@ import com.example.commom.result.ErrorCode;
 
 import com.example.jwtutil.jwtUtil.JwtTokenUtil;
 import com.example.model.user.pojo.User;
+import com.example.serviceClient.service.order.OrderFeignClient;
 import com.example.userservice.mapper.UserMapper;
 import com.example.userservice.service.UserService;
+import io.seata.spring.annotation.GlobalTransactional;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Map;
 
 import static com.example.commom.constant.RabbitMQConstant.DEMO_MESSAGE_EXCHANGE;
 import static com.example.commom.constant.RabbitMQConstant.DEMO_MESSAGE_SEND_KEY;
 import static com.example.commom.exception.ThrowUtils.throwIf;
 import static com.example.commom.result.ErrorCode.LOGOUT_ERROR;
+import static com.example.commom.result.ErrorCode.SYSTEM_ERROR;
 
 /**
  * 用户服务层
@@ -40,6 +45,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
 
     @Resource
     private RabbitTemplate rabbitTemplate;
+
+    @Resource
+    private OrderFeignClient orderFeignClient;
 
     /**
      * 用户登录
@@ -113,6 +121,31 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     @Override
     public Boolean sendMessage(String message) {
         rabbitTemplate.convertAndSend(DEMO_MESSAGE_EXCHANGE,DEMO_MESSAGE_SEND_KEY,message);
+        return true;
+    }
+
+    @GlobalTransactional
+    @Override
+    public Boolean seataTest() {
+        Long randomStr = RandomUtil.randomLong(5);
+        User user = User.builder()
+                //.id(randomStr)
+                .account("123")
+                .password("123")
+                .role("111")
+                //.createTime(new Date())
+                //.updateTime(new Date())
+                .isDelete(0)
+                .build();
+        save(user);
+        log.info("user写入完毕");
+        //指定分布式事务是否成功
+        Boolean isSuccess = true;
+        if (!isSuccess){
+            System.out.println("测试微服务失败");
+            throw new BusinessException(SYSTEM_ERROR);
+        }
+        orderFeignClient.save(user.getId());
         return true;
     }
 }

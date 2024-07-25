@@ -19,7 +19,7 @@ import static com.example.commom.constant.RabbitMQConstant.*;
 @Configuration
 @Slf4j
 public class MessageListener {
-    @RabbitListener(
+/*    @RabbitListener(
         bindings = @QueueBinding(
                 value = @Queue(
                     value = SEND_MESSAGE_QUEUE_1
@@ -34,5 +34,5 @@ public class MessageListener {
         log.info("消费队列获取到消息:[{}]", message);
         //表示消费成功
         channel.basicAck(deliveryTag, false);
-    }
+    }*/
 }

@@ -15,4 +15,6 @@ public interface UserService extends IService<User> {
     Boolean logout(String userId);
 
     Boolean sendMessage(String message);
+
+    Boolean seataTest();
 }

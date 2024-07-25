@@ -67,4 +67,18 @@ public class UserController {
         }
         return ResultUtil.error(SYSTEM_ERROR);
     }
+
+    /**
+     * 添加用户和订单(测试分布式事务)
+     *
+     * @return {@link BaseResult}<{@link Boolean}>
+     */
+    @PostMapping("/add")
+    public BaseResult<Boolean> addUserAndOrder(){
+        Boolean isSuccess = userService.seataTest();
+        if (isSuccess){
+            return ResultUtil.success();
+        }
+        return ResultUtil.error(SYSTEM_ERROR);
+    }
 }
