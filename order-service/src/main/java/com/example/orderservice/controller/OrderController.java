@@ -1,7 +1,7 @@
 package com.example.orderservice.controller;
 
-import com.example.commom.result.BaseResult;
-import com.example.commom.result.ResultUtil;
+import com.example.common.result.BaseResult;
+import com.example.common.result.ResultUtil;
 import com.example.model.user.pojo.User;
 import com.example.serviceClient.service.user.UserFeignClient;
 import jakarta.annotation.Resource;

@@ -2,8 +2,8 @@ package com.example.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.example.commom.result.BaseResult;
-import com.example.commom.result.ErrorCode;
+import com.example.common.result.BaseResult;
+import com.example.common.result.ErrorCode;
 import com.example.jwtutil.config.AuthJwtProperties;
 import com.example.jwtutil.jwtUtil.JwtTokenUtil;
 import jakarta.annotation.Resource;
@@ -22,8 +22,8 @@ import reactor.core.publisher.Mono;
 
 import java.nio.charset.StandardCharsets;
 
-import static com.example.commom.result.ErrorCode.TOKEN_INVALID;
-import static com.example.commom.result.ErrorCode.TOKEN_MISSION;
+import static com.example.common.result.ErrorCode.TOKEN_INVALID;
+import static com.example.common.result.ErrorCode.TOKEN_MISSION;
 
 @Configuration
 @Slf4j

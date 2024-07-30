@@ -1,20 +1,7 @@
 package com.example.orderservice.mq;
 
-import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.ExchangeTypes;
-import org.springframework.amqp.rabbit.annotation.Exchange;
-import org.springframework.amqp.rabbit.annotation.Queue;
-import org.springframework.amqp.rabbit.annotation.QueueBinding;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.io.IOException;
-
-import static com.example.commom.constant.RabbitMQConstant.*;
 
 @Configuration
 @Slf4j

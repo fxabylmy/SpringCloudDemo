@@ -1,7 +1,7 @@
 package com.example.userservice.controller;
 
-import com.example.commom.result.BaseResult;
-import com.example.commom.result.ResultUtil;
+import com.example.common.result.BaseResult;
+import com.example.common.result.ResultUtil;
 import com.example.model.user.dto.UserLoginRequest;
 import com.example.userservice.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-import static com.example.commom.result.ErrorCode.SYSTEM_ERROR;
+import static com.example.common.result.ErrorCode.SYSTEM_ERROR;
 
 @RefreshScope // 自动配置更新
 @RestController

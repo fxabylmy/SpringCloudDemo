@@ -3,8 +3,8 @@ package com.example.userservice.service.impl;
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.commom.exception.BusinessException;
-import com.example.commom.result.ErrorCode;
+import com.example.common.exception.BusinessException;
+import com.example.common.result.ErrorCode;
 
 import com.example.jwtutil.jwtUtil.JwtTokenUtil;
 import com.example.model.user.pojo.User;
@@ -18,14 +18,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.Map;
 
-import static com.example.commom.constant.RabbitMQConstant.DEMO_MESSAGE_EXCHANGE;
-import static com.example.commom.constant.RabbitMQConstant.DEMO_MESSAGE_SEND_KEY;
-import static com.example.commom.exception.ThrowUtils.throwIf;
-import static com.example.commom.result.ErrorCode.LOGOUT_ERROR;
-import static com.example.commom.result.ErrorCode.SYSTEM_ERROR;
+import static com.example.common.constant.RabbitMQConstant.DEMO_MESSAGE_EXCHANGE;
+import static com.example.common.constant.RabbitMQConstant.DEMO_MESSAGE_SEND_KEY;
+import static com.example.common.exception.ThrowUtils.throwIf;
+import static com.example.common.result.ErrorCode.LOGOUT_ERROR;
+import static com.example.common.result.ErrorCode.SYSTEM_ERROR;
 
 /**
  * 用户服务层
